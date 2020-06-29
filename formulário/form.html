@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Formulário</title>
+</head>
+<body>
+<header>
+    <h1>Exemplo de Formulário HTML</h1>
+</header>
+
+<section>
+    <div class="content">
+        <form action="" method="post" id="register">
+            <h2>Cadastro</h2>
+            <div class="inputfield" onchange="tipoPessoa()">
+                <label>
+                    <input type="radio" name="pessoa" value="PF" checked title="Pessoa Física">
+                    Pessoa Física
+                </label>
+                <label>
+                    <input type="radio" name="pessoa" value="PJ" title="Pessoa Jurídica">
+                    Pessoa Jurídica
+                </label>
+            </div>
+
+            <fieldset class="pessoaFisica">
+                <div class="inputfield">
+                    <label>Nome Completo</label>
+                    <input type="text" name="nome" id="nomeCompleto" placeholder="Digite seu nome..." title="Digite o Nome Completo..." required>
+                </div>
+                <div class="inputfield">
+                    <label>CPF</label>
+                    <input type="text" name="cpf" id="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF no formato: xxx.xxx.xxx-xx" placeholder="Digite seu CPF..." required>
+                </div>
+                <div class="inline">
+                    <div class="inputfield">
+                        <p><label>Nascimento</label></p>
+                        <input type="date" id="nascimento" placeholder="Data de Nascimento..." title="Data de Nascimento" onblur="calculoIdade()">
+                    </div>
+                    <div class="inputfield hidden" id="dividade">
+                        <p><label>Idade</label></p>
+                        <input type="text" id="idade" value="0">
+                    </div>
+                </div>
+                <div class="inputfield">
+                    <p><label>Sexo</label></p>
+                    <label>
+                        <input type="radio" name="gender" value="M" title="Masculino">
+                        Masculino
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="F" title="Feminino">
+                        Feminino
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="pessoaJuridica hidden">
+                <div class="inputfield">
+                    <label>Nome Fantasia</label>
+                    <input type="text" name="nomeFantasia" id="nomeFantasia" title="Nome Fantasia" placeholder="Nome Fantasia da Empresa...">
+                </div>
+                <div class="inputfield">
+                    <label>Razão Social</label>
+                    <input type="text" name="razaoSocial" id="razaoSocial" title="Razão Social" placeholder="Nome de Registro da Empresa...">
+                </div>
+                <div class="inputfield">
+                    <label>CNPJ</label>
+                    <input type="text" name="cnpj" id="cnpj" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" placeholder="* Somente números" title="Digite um CNPJ no formato: xx.xxx.xxx/xxxx-xx">
+                </div>
+                <div class="inputfield">
+                    <label>Inscrição Estadual</label>
+                    <input type="text" name="ie" id="inscricaoEstadual" pattern="\d{3}\.\d{3}\.\d{3}.\d{3}" placeholder="* Somente números" title="Digite a Inscrição no formato: xxx.xxx.xxx.xxx">
+                </div>
+                <div class="inputfield">
+                    <label>Contato</label>
+                    <input type="text" name="contato_empresa" placeholder="Nome Completo" title="Nome para Contato">
+                </div>
+            </fieldset>
+
+            <div class="inline">
+                <div class="inputfield">
+                    <p><label>Telefone Fixo</label></p>
+                    <input type="tel" name="telefone" value="xx 0000-0000" placeholder="XX 00000-0000" title="Telefone">
+                </div>
+                <div class="inputfield">
+                    <p><label>Celular</label></p>
+                    <input type="tel" name="celular" value="xx 00000-0000" placeholder="XX 00000-0000" title="Celular">
+                </div>
+            </div>
+
+            <div class="inputfield">
+                <label>e-mail</label>
+                <input type="email" placeholder="Digite seu email" title="Email" required>
+            </div>
+            <div class="inputfield">
+                <p><label>Senha</label></p>
+                <input type="password" placeholder="********" required title="Digite uma Senha">
+            </div>
+
+            <label><em>Endereço</em></label>
+            <fieldset class="fieldsendereco">
+                <div class="inputfield">
+                    <p><label for="cep">CEP</label></p>
+                    <input type="text" id="cep" title="Digite o CEP" placeholder="00000-000" value="" maxlength="9" onblur="pesquisacep(this.value)">
+                </div>
+                <div class="inputfield">
+                    <label>Logradouro</label>
+                        <input type="text" name="rua" id="rua" placeholder="Endereço..." required title="Endereço">
+                </div>
+                <div class="inputfield">
+                    <label>Número / Complemento</label>
+                    <input type="text" name="complemento" placeholder="Número / Complemento..." title="Complemento" required>
+                </div>
+                <div class="inputfield">
+                    <label>Bairro</label>
+                    <input type="text" name="bairro" id="bairro" placeholder="Bairro..." title="Bairro">
+                </div>
+                <div class="inputfield">
+                    <label>Cidade</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Cidade..." title="Cidade">
+                </div>
+                <div class="inputfield">
+                    <p><label>Estado</label></p>
+                    <input type="text" name="Estado" id="uf" placeholder="Estado..." title="Estado">
+                </div>
+            </fieldset>
+
+            <div class="inputfield">
+                <p><label>Mensagem</label></p>
+                <textarea name="mensagem" cols="100" rows="10" title="Escreva uma mensagem" placeholder="Deixe uma mensagem...."></textarea>
+            </div>
+            <div class="inputfield">
+                <label>Site de Referência</label>
+                <input type="url" placeholder="https://..." title="Digite um site se tiver">
+            </div>
+            <div class="inputfield">
+                <input type="checkbox" title="Receba as Nossas Newsletters">
+                <label>
+                    Aceito Receber Nossas NewsLetters.
+                </label>
+            </div>
+            <div class="inputfield float-right">
+                <button type="submit" title="Envie as Informações">Enviar Informações</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
