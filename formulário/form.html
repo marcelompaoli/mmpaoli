@@ -29,11 +29,11 @@
 
             <fieldset class="pessoaFisica">
                 <div class="inputfield">
-                    <label>Nome Completo</label>
+                    <label><span class="required">* </span>Nome Completo</label>
                     <input type="text" name="nome" id="nomeCompleto" placeholder="Digite seu nome..." title="Digite o Nome Completo..." required>
                 </div>
                 <div class="inputfield">
-                    <label>CPF</label>
+                    <label><span class="required">* </span>CPF</label>
                     <input type="text" name="cpf" id="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite um CPF no formato: xxx.xxx.xxx-xx" placeholder="Digite seu CPF..." required>
                 </div>
                 <div class="inline">
@@ -61,23 +61,23 @@
 
             <fieldset class="pessoaJuridica hidden">
                 <div class="inputfield">
-                    <label>Nome Fantasia</label>
+                    <label><span class="required">* </span>Nome Fantasia</label>
                     <input type="text" name="nomeFantasia" id="nomeFantasia" title="Nome Fantasia" placeholder="Nome Fantasia da Empresa...">
                 </div>
                 <div class="inputfield">
-                    <label>Razão Social</label>
+                    <label><span class="required">* </span>Razão Social</label>
                     <input type="text" name="razaoSocial" id="razaoSocial" title="Razão Social" placeholder="Nome de Registro da Empresa...">
                 </div>
                 <div class="inputfield">
-                    <label>CNPJ</label>
-                    <input type="text" name="cnpj" id="cnpj" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" placeholder="* Somente números" title="Digite um CNPJ no formato: xx.xxx.xxx/xxxx-xx">
+                    <label><span class="required">* </span>CNPJ</label>
+                    <input type="text" name="cnpj" id="cnpj" pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" placeholder="xx.xxx.xxx/xxxx-xx" title="Digite um CNPJ no formato: xx.xxx.xxx/xxxx-xx">
                 </div>
                 <div class="inputfield">
                     <label>Inscrição Estadual</label>
-                    <input type="text" name="ie" id="inscricaoEstadual" pattern="\d{3}\.\d{3}\.\d{3}.\d{3}" placeholder="* Somente números" title="Digite a Inscrição no formato: xxx.xxx.xxx.xxx">
+                    <input type="text" name="ie" id="inscricaoEstadual" pattern="\d{3}\.\d{3}\.\d{3}.\d{3}" placeholder="xxx.xxx.xxx.xxx" title="Digite a Inscrição no formato: xxx.xxx.xxx.xxx">
                 </div>
                 <div class="inputfield">
-                    <label>Contato</label>
+                    <label><span class="required">* </span>Contato</label>
                     <input type="text" name="contato_empresa" placeholder="Nome Completo" title="Nome para Contato">
                 </div>
             </fieldset>
@@ -94,12 +94,12 @@
             </div>
 
             <div class="inputfield">
-                <label>e-mail</label>
+                <label><span class="required">* </span>e-mail</label>
                 <input type="email" placeholder="Digite seu email" title="Email" required>
             </div>
             <div class="inputfield">
-                <p><label>Senha</label></p>
-                <input type="password" placeholder="********" required title="Digite uma Senha">
+                <p><label><span class="required">* </span>Senha</label></p>
+                <input type="password" placeholder="********" title="Digite uma Senha" required>
             </div>
 
             <label><em>Endereço</em></label>
@@ -109,11 +109,11 @@
                     <input type="text" id="cep" title="Digite o CEP" placeholder="00000-000" value="" maxlength="9" onblur="pesquisacep(this.value)">
                 </div>
                 <div class="inputfield">
-                    <label>Logradouro</label>
-                        <input type="text" name="rua" id="rua" placeholder="Endereço..." required title="Endereço">
+                    <label><span class="required">* </span>Logradouro</label>
+                        <input type="text" name="rua" id="rua" placeholder="Endereço..." title="Endereço" required>
                 </div>
                 <div class="inputfield">
-                    <label>Número / Complemento</label>
+                    <label><span class="required">* </span>Número / Complemento</label>
                     <input type="text" name="complemento" placeholder="Número / Complemento..." title="Complemento" required>
                 </div>
                 <div class="inputfield">
@@ -121,12 +121,12 @@
                     <input type="text" name="bairro" id="bairro" placeholder="Bairro..." title="Bairro">
                 </div>
                 <div class="inputfield">
-                    <label>Cidade</label>
-                    <input type="text" name="cidade" id="cidade" placeholder="Cidade..." title="Cidade">
+                    <label><span class="required">* </span>Cidade</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="Cidade..." title="Cidade" required>
                 </div>
                 <div class="inputfield">
-                    <p><label>Estado</label></p>
-                    <input type="text" name="Estado" id="uf" placeholder="Estado..." title="Estado">
+                    <p><label><span class="required">* </span>Estado</label></p>
+                    <input type="text" name="Estado" id="uf" placeholder="Estado..." title="Estado" required>
                 </div>
             </fieldset>
 
@@ -136,7 +136,7 @@
             </div>
             <div class="inputfield">
                 <label>Site de Referência</label>
-                <input type="url" placeholder="https://..." title="Digite um site se tiver">
+                <input type="url" placeholder="http://site.com.br" pattern="https?://.+" title="Inclua http:// ou https://">>
             </div>
             <div class="inputfield">
                 <input type="checkbox" title="Receba as Nossas Newsletters">

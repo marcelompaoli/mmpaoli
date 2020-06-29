@@ -48,6 +48,9 @@ fieldset {
 .hidden {
     display: none;
 }
+span.required {
+    color: #7d0606;
+}
 #idade {
     width: 40px;
     text-align: center;
