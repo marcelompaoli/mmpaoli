@@ -98,6 +98,9 @@ button {
     padding-bottom: 0;
     margin: 0;
 }
+.inputfield.float-right p > span {
+    font-size: .9em;
+}
 #dividade {
     margin-right: 5px;
 }
