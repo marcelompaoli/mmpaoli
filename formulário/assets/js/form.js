@@ -1,36 +1,45 @@
+//** Troca de Pessoa Física / Jurídica **//
+function tipoPessoa() {
+    let item = event.target.value;
+    if (item === 'PJ') {
+        document.querySelector('.pessoaFisica').classList.add('hidden');
+        document.querySelector('.pessoaJuridica').classList.remove('hidden');
+
+        getElementByIdRequired('nomeCompleto cpf', false);
+        getElementByIdRequired('nomeFantasia razaoSocial cnpj', true);
+    } else {
+        document.querySelector('.pessoaJuridica').classList.add('hidden');
+        document.querySelector('.pessoaFisica').classList.remove('hidden');
+
+        getElementByIdRequired('nomeCompleto cpf', true);
+        getElementByIdRequired('nomeFantasia razaoSocial cnpj', false);
+    }
+}
+
+function getElementByIdRequired(elementsIds, state) {
+    elementsIds.split(' ').forEach(elementId => {
+        document.getElementById(elementId).required = state;
+    });
+}
+
 //* Cálculo da Idade **//
-document.querySelector("#nascimento").addEventListener('blur', e => {
+function calculoIdade() {
     let dataNascimento = new Date(document.querySelector("#nascimento").value);
     let dataAtual = new Date();
     let diferenca = Math.abs(dataAtual.getTime() - dataNascimento.getTime());
-    let idade = Math.ceil((diferenca / (1000 * 60 * 60 * 24 * 365) - 1));
+    let varIdade = Math.ceil((diferenca / (1000 * 60 * 60 * 24 * 365) - 1));
     let idadeValue = document.querySelector("#idade");
 
-    if (idade != '0') {
-        idadeValue.value = idade;
+    if (isNaN(varIdade)) {
+        varIdade = 0;
+    }
+    if (varIdade !== '0') {
+        idadeValue.value = varIdade + ' Anos';
     }
     document.querySelector('#dividade').classList.remove('hidden');
-});
-
-//** Troca de Pessoa Jurídica e Física **//
-function pessoa(e) {
-
-    if (document.querySelector('input[name="pessoa"]')) {
-        document.querySelectorAll('input[name="pessoa"]').forEach((elem) => {
-            elem.addEventListener("change", function (event) {
-                var item = event.target.value;
-                if (item === 'PJ') {
-                    document.querySelector('.pessoafisica').classList.add('hidden');
-                    document.querySelector('.pessoajuridica').classList.remove('hidden');
-                } else {
-                    document.querySelector('.pessoajuridica').classList.add('hidden');
-                    document.querySelector('.pessoafisica').classList.remove('hidden');
-                }
-            });
-        });
-    }
-
 }
+
+//** Funções para CEP **//
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('rua').value=("");
@@ -54,17 +63,15 @@ function meu_callback(conteudo) {
     }
 }
 
-//** CEP  **//
 function pesquisacep(valor) {
-
     //Nova variável "cep" somente com dígitos.
-    var cep = valor.replace(/\D/g, '');
+    let cep = valor.replace(/\D/g, '');
 
     //Verifica se campo cep possui valor informado.
     if (cep != "") {
 
         //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
+        let validacep = /^[0-9]{8}$/;
 
         //Valida o formato do CEP.
         if(validacep.test(cep)) {
@@ -76,7 +83,7 @@ function pesquisacep(valor) {
             document.getElementById('uf').value="...";
 
             //Cria um elemento javascript.
-            var script = document.createElement('script');
+            let script = document.createElement('script');
 
             //Sincroniza com o callback.
             script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
@@ -95,15 +102,4 @@ function pesquisacep(valor) {
         //cep sem valor, limpa formulário.
         limpa_formulário_cep();
     }
-};
-/* document.querySelector('.open-menu').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.add('open');
-});
-
-document.querySelector('.close-menu button').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.remove('open');
-});
-
-document.querySelector('.menu .backdrop').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.remove('open');
-}); */
+}

@@ -10,7 +10,7 @@ header {
     text-align: center;
 }
 header, section {
-    max-width: 800px;
+    max-width: 650px;
     margin: auto;
     width: 100%;
     padding: 10px;
@@ -20,8 +20,16 @@ section {
     border: #cdcdd5 1px solid;
     font-size: 16px;
 }
+#mpaoli {
+  
+
+}
+#mpaoli > img {
+  width: 80px;
+  float: left;
+}
 .content {
-    max-width: 780px;
+    max-width: 630px;
     padding: 10px;
     background-color: #cdcdd5;
     border-bottom: #2b542c 3px solid;
@@ -52,15 +60,20 @@ span.required {
     color: #7d0606;
 }
 #idade {
-    width: 40px;
+    width: 80px;
     text-align: center;
-    font-weight: bold;
+    font-size: .9em;
 }
 #idade::placeholder {
     color: #8a8a8a;
 }
-textarea#textareamensagem {
+textarea {
+    float: left;
     width: 100%;
+    min-height: 75px;
+    outline: none;
+    resize: none;
+    margin-bottom: 10px;
 }
 input {
     line-height: 1.8em;
@@ -68,7 +81,8 @@ input {
 input:focus, textarea:focus {
     outline: none;
     border: #9d261d 1px solid;
-    padding: 0.1875em;
+    padding: 3px;
+    background-color: #fffefe;
 }
 input[type=text], input[type=email], input[type=url] {
     width: 100%;

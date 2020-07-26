@@ -1,6 +1,6 @@
 //** Troca de Pessoa Física / Jurídica **//
 function tipoPessoa() {
-    var item = event.target.value;
+    let item = event.target.value;
     if (item === 'PJ') {
         document.querySelector('.pessoaFisica').classList.add('hidden');
         document.querySelector('.pessoaJuridica').classList.remove('hidden');
@@ -32,8 +32,11 @@ function calculoIdade() {
     let varIdade = Math.ceil((diferenca / (1000 * 60 * 60 * 24 * 365) - 1));
     let idadeValue = document.querySelector("#idade");
 
-    if (varIdade != '0') {
-        idadeValue.value = varIdade;
+    if (isNaN(varIdade)) {
+        varIdade = 0;
+    }
+    if (varIdade !== '0') {
+        idadeValue.value = varIdade + ' Anos';
     }
     document.querySelector('#dividade').classList.remove('hidden');
 }
@@ -101,15 +104,4 @@ function pesquisacep(valor) {
         //cep sem valor, limpa formulário.
         limpa_formulário_cep();
     }
-};
-/* document.querySelector('.open-menu').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.add('open');
-});
-
-document.querySelector('.close-menu button').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.remove('open');
-});
-
-document.querySelector('.menu .backdrop').addEventListener('click', e => {
-    document.querySelector('header .menu').classList.remove('open');
-}); */
+}
